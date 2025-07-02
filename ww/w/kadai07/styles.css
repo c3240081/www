@@ -1,14 +1,14 @@
 body {
-  font-family: "Arial", sans-serif;
   margin: 0;
-  background-color: #f9f9f9;
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
   color: #333;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px
 }
 
 header {
@@ -23,53 +23,58 @@ header h1 {
   font-size: 1.8em;
 }
 
-nav {
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 10px;
+  gap: 15px;
 }
 
-nav a {
+.nav-links a {
   color: white;
-  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover {
+.nav-links a:hover {
   text-decoration: underline;
 }
 
+/* セクション */
 section {
+  background-color: #fff;
   margin: 40px 0;
   padding: 20px;
-  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
-  margin-top: 0;
   color: #0a5275;
 }
 
-/* サービスカード */
-.services {
+.services-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: space-between;
 }
 
 .card {
-  flex: 1 1 250px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  flex: 1 1 calc(33% - 20px);
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .card img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .card-content {
@@ -77,61 +82,50 @@ section h2 {
 }
 
 .card-content h3 {
-  margin-top: 0;
-  font-size: 1.2em;
+  margin: 0 0 10px;
   color: #0a5275;
 }
 
-/* フォーム */
-form {
+.contact-form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-form label {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-form input,
-form textarea {
+.contact-form input,
+.contact-form textarea {
   padding: 10px;
-  margin-top: 5px;
   border: 1px solid #ccc;
+  font-size: 1em;
   border-radius: 5px;
-  font-size: 1em;
 }
 
-form input:focus,
-form textarea:focus {
-  border-color: #0a5275;
-  outline: none;
-}
-
-form button {
-  margin-top: 15px;
-  padding: 10px;
-  font-size: 1em;
-  color: white;
+.contact-form button {
   background-color: #0a5275;
+  color: white;
+  padding: 10px;
   border: none;
   border-radius: 5px;
+  font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-form button:hover {
+.contact-form button:hover {
   background-color: #064a6b;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 600px) {
-  .services {
+@media (max-width: 768px) {
+  .services-flex {
     flex-direction: column;
   }
 
-  nav a {
-    display: block;
-    margin: 8px 0;
+  .card {
+    flex: 1 1 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
   }
 }
