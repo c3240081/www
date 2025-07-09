@@ -7,48 +7,63 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-    <h1>水と緑が織りなす、癒しの海津市</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">トップ</a></li>
-        <li><a href="spots.html">観光スポット</a></li>
-        <li><a href="food.html">グルメ・特産品</a></li>
-      </ul>
+  <header>
+    <h1>水郷のまち・海津市へようこそ</h1>
+    <nav class="nav-links">
+      <a href="index.html">トップ</a>
+      <a href="spots.html">観光スポット</a>
+      <a href="food.html">グルメ・特産品</a>
     </nav>
   </header>
-  <main>
-    <img src="img/73742ffa1b08bdf32077735c02b3caf8.webp" alt="木曽三川と堤防風景" class="main-photo">
+
+  <div class="container">
     <section>
       <h2>海津市について</h2>
       <p>
-        海津市は木曽・揖斐・長良の三川が出会う水郷地帯として知られ、
-        花々と自然豊かな風景が楽しめるまちです。名所へのアクセスも良好です。
+        海津市は、岐阜県の西南端に位置し、木曽・長良・揖斐川の三川が織りなす豊かな自然と文化に恵まれた「水のまち」です。春のチューリップ、夏のあじさい、秋の紅葉と四季を通じて美しい景観が楽しめます。
       </p>
     </section>
+
     <section>
-        <div class="grid-container">
-    
+      <h2>海津市をめぐる</h2>
+      <div class="services-flex">
+
         <a href="spots.html" class="card-link">
-            <div class="card">
+          <div class="card">
             <img src="img/chiyobo.jpg" alt="観光スポット">
-            <h3>観光スポット</h3>
-            <p>千代保稲荷神社など、魅力あふれる名所をご紹介！</p>
+            <div class="card-content">
+              <h3>観光スポット</h3>
+              <p>千代保稲荷や木曽三川公園など、自然と歴史を感じる名所が満載！</p>
             </div>
+          </div>
         </a>
 
         <a href="food.html" class="card-link">
-            <div class="card">
-            <img src="img/165217483933401.jpg" alt="ご当地グルメ">
-            <h3>ご当地グルメ</h3>
-            <p>なまずの蒲焼きや草餅など、海津の味を堪能！</p>
-        </div>
+          <div class="card">
+            <img src="img/namazu.jpg" alt="海津グルメ">
+            <div class="card-content">
+              <h3>グルメ・特産品</h3>
+              <p>なまずの蒲焼きや草餅など、ここだけの味覚をご紹介します。</p>
+            </div>
+          </div>
         </a>
-    </div>
+
+        <a href="access.html" class="card-link">
+          <div class="card">
+            <img src="img/map.jpg" alt="アクセス情報">
+            <div class="card-content">
+              <h3>アクセス情報</h3>
+              <p>名古屋から電車とバスで約1時間。便利なアクセス方法はこちら！</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
     </section>
-  </main>
-  <footer><p>&copy; 2025 海津市観光ガイド</p></footer>
-</body>
-</html>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 海津市観光ガイド</p>
+  </footer>
 </body>
 </html>
