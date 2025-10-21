@@ -2,40 +2,37 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>四則演算のページ</title>
+  <title>変数の演算</title>
   <script>
-    // 変数の定義
     let a = 10;
     let b = 4;
     let answer;
 
-    // 足し算
     function add() {
       answer = a + b;
-      alert("足し算の結果: " + answer);
+      alert("答えは" + answer + "です。");
     }
 
-    // 引き算
     function subtract() {
       answer = a - b;
-      alert("引き算の結果: " + answer);
+      alert("答えは" + answer + "です。");     
     }
 
     // 掛け算
     function multiply() {
       answer = a * b;
-      alert("掛け算の結果: " + answer);
+      alert("答えは" + answer + "です。");
     }
 
     // 割り算
     function divide() {
       answer = a / b;
-      alert("割り算の結果: " + answer);
+      alert("答えは" + answer + "です。");
     }
   </script>
 </head>
 <body>
-  <h1>四則演算をしてみよう！</h1>
+  <h1>変数の演算</h1>
   <p>変数a=10、変数b=4</p>
 
   <button onclick="add()">足し算</button>
