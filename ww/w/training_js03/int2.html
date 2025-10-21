@@ -11,7 +11,7 @@
 
     h1 {
       color: #222;
-      border-bottom: 3px solid #333;
+      /* 下線を削除 → border-bottom を消しました */
     }
 
     table {
@@ -30,11 +30,12 @@
     }
 
     td:nth-child(1) {
-      background-color: #f7b977;
+      background-color: #ffe5cc;
     }
 
     button {
       padding: 4px 10px;
+      border: 1px solid #666;
       background-color: #f7f7f7;
       border-radius: 4px;
       cursor: pointer;
@@ -51,19 +52,16 @@
     let b = [10, 16, 8];
     let answer;
 
-    // 0行目の計算
     function multiply_0() {
       answer = a[0] * b[0];
       alert("料金は" + answer + "円です");
     }
 
-    // 1行目の計算
     function multiply_1() {
       answer = a[1] * b[1];
       alert("料金は" + answer + "円です");
     }
 
-    // 2行目の計算
     function multiply_2() {
       answer = a[2] * b[2];
       alert("料金は" + answer + "円です");
