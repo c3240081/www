@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>写真の一覧</title>
+  <style>
+    body {
+  font-family: "Yu Gothic", sans-serif;
+  margin: 40px;
+}
+
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+#photoList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#photoList img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+  </style>
+</head>
+<body>
+  <h1>写真の一覧</h1>
+  <p>以下のボタンをクリックすると、写真が一覧表示されます。</p>
+
+  <button id="showBtn">写真を表示</button>
+
+  <div id="photoList"></div>
+
+  <script>
+   document.getElementById("showBtn").addEventListener("click", function() {
+  const photos = [
+    "photo_1.jpg",
+    "photo_2.jpg",
+    "photo_3.jpg",
+    "photo_4.jpg",
+    "photo_5.jpg",
+    "photo_6.jpg",
+    "photo_7.jpg",
+    "photo_8.jpg"
+  ];
+
+  const container = document.getElementById("photoList");
+
+  // 写真を順番に追加
+  photos.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    container.appendChild(img);
+  });
+
+  // ボタンを削除
+  this.remove();
+});
+ 
+  </script>
+</body>
+</html>
