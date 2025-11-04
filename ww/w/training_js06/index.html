@@ -1,105 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>人口の多い国ランキング</title>
-  <style>
-    body{
-      font-family: "Yu Gothic","Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-      padding: 32px;
-      line-height: 1.6;
-    }
-    h1{
-      font-size: 36px;
-      margin-bottom: 18px;
-    }
-    ul#countries{
-      list-style: decimal;
-      margin-left: 1.5em;
-      font-size: 18px;
-    }
-
-    ul#countries li{
-      margin: 12px 0;
-      min-height: 48px; 
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .flag {
-      height: 40px;
-      width: auto;
-      border: 1px solid #ccc;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-    }
-
-    button {
-      margin-top: 18px;
-      padding: 8px 12px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人口の多い国ランキング</title>
+<style>
+  body {
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    margin: 40px;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 20px;
+  }
+  .number {
+    width: 30px;
+    font-weight: bold;
+  }
+  img {
+    width: 80px;
+    height: 50px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 15px;
+    padding: 6px 12px;
+  }
+</style>
 </head>
 <body>
   <h1>人口の多い国ランキング</h1>
 
-  <ul id="countries">
-    <li data-name="中国" data-flag="flag_CHN.png">中国</li>
-    <li data-name="インド" data-flag="flag_IND.png">インド</li>
-    <li data-name="アメリカ" data-flag="flag_USA.png">アメリカ</li>
-    <li data-name="インドネシア" data-flag="flag_IDN.png">インドネシア</li>
-  </ul>
+  <div id="ranking">
+    <div class="item"><div class="number">1.</div><div class="name">中国</div></div>
+    <div class="item"><div class="number">2.</div><div class="name">インド</div></div>
+    <div class="item"><div class="number">3.</div><div class="name">アメリカ</div></div>
+    <div class="item"><div class="number">4.</div><div class="name">インドネシア</div></div>
+  </div>
 
-  <button id="toggleBtn">国旗で表示</button>
+  <button onclick="showFlags()">国旗で表示</button>
 
   <script>
-    (function(){
-      const btn = document.getElementById('toggleBtn');
-      const items = document.querySelectorAll('#countries li');
+    function showFlags() {
+      const flags = [
+        "flog_CHN.png",
+        "flog_IND.png",
+        "flog_USA.png",
+        "flog_IDN.png",
+      ];
 
-      // 初期化：元のテキストを data-original に保存（もし data-name がなければ）
-      items.forEach(li => {
-        if (!li.dataset.original) {
-          li.dataset.original = li.textContent.trim();
-        }
-      });
+      const names = document.querySelectorAll(".name");
 
-      let showingFlags = false;
-
-      btn.addEventListener('click', () => {
-        showingFlags = !showingFlags;
-
-        items.forEach(li => {
-          const name = li.dataset.name || li.dataset.original;
-          const flagSrc = li.dataset.flag || '';
-
-          if (showingFlags && flagSrc) {
-            // 画像がある場合は画像に置き換え
-            // 既に img が入っている可能性があるので上書きする
-            li.innerHTML = ''; // まず中身を空にする
-            const img = document.createElement('img');
-            img.className = 'flag';
-            img.alt = name + 'の国旗';
-            img.src = flagSrc;
-            // 画像が壊れた場合の代替テキスト（読み上げ / UX向上）
-            img.onerror = function(){
-              // 画像が読み込めないときは国名を表示
-              li.textContent = name;
-            };
-            li.appendChild(img);
-            li.setAttribute('aria-label', name);
-          } else {
-            li.textContent = name;
-            li.removeAttribute('aria-label');
-          }
-        });
-
-        btn.textContent = showingFlags ? '国名で表示' : '国旗で表示';
-      });
-    })();
+      for (let i = 0; i < names.length; i++) {
+        names[i].innerHTML = `<img src="${flags[i]}" alt="${names[i].textContent}の国旗">`;
+      }
+    }
   </script>
 </body>
 </html>
