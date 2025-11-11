@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>入場料の一覧</title>
+  <style>
+    body {
+      font-family: "游ゴシック", "Yu Gothic", sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 0 auto;
+      background-color: white;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 10px 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #82b9b5;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:nth-child(odd) td {
+      background-color: #f8f8f8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>入場料の一覧</h1>
+  <table id="priceTable"></table>
+
+  <script>
+    // === 基本データ ===
+    const headers = ["人数", "大人", "高校生", "中学生", "小学生"];
+    const basePrice = { 大人: 800, 高校生: 680, 中学生: 450, 小学生: 380 };
+    const maxPeople = 5;
+
+    const table = document.getElementById("priceTable");
+
+    let theadHTML = "<tr>";
+    for (const header of headers) {
+      theadHTML += `<th>${header}</th>`;
+    }
+    theadHTML += "</tr>";
+
+    
+    let tbodyHTML = "";
+    for (let i = 1; i <= maxPeople; i++) {
+      tbodyHTML += "<tr>";
+      tbodyHTML += `<th>${i}人</th>`; 
+
+      for (const key in basePrice) {
+        const price = basePrice[key] * i;
+        tbodyHTML += `<td>${price}円</td>`;
+      }
+
+      tbodyHTML += "</tr>";
+    }
+
+    table.insertAdjacentHTML("beforeend", theadHTML + tbodyHTML);
+  </script>
+
+</body>
+</html>
