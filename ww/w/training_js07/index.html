@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>写真一覧表示</title>
+  <style>
+    #photoArea img {
+      width: 200px;
+      height: auto;
+      margin: 5px;
+      border-radius: 8px;
+    }
+    #photoArea {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>写真一覧</h1>
+  <button id="showBtn">写真を表示</button>
+  <div id="photoArea"></div>
+
+  <script>
+    document.getElementById("showBtn").addEventListener("click", function() {
+      // 8枚の写真をまとめてHTML文字列として作成
+      let photosHTML = "";
+      for (let i = 1; i <= 8; i++) {
+        photosHTML += `<img src="images/photo${i}.jpg" alt="写真${i}">`;
+      }
+
+      // insertAdjacentHTMLを1回だけ呼び出す
+      document.getElementById("photoArea").insertAdjacentHTML("beforeend", photosHTML);
+
+      // ボタンを削除
+      this.remove();
+    });
+  </script>
+</body>
+</html>
