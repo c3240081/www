@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter switch構文</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef3ff;
+      text-align: center;
+      padding: 40px;
+    }
+    #wrap {
+      background: #fff;
+      padding: 30px;
+      width: 500px;
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    #btn {
+      padding: 15px;
+      width: 70%;
+      font-size: 20px;
+      background: #2c56f0;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+    }
+    #btn:hover { opacity: 0.9; }
+    #resultBox {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f8f9ff;
+      border: 1px solid #d5d8f0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Click Counter ★ switch構文</h1>
+<p>クリック回数に応じて結果が変わります。</p>
+
+<div id="wrap">
+
+  <p>クリック回数：<span id="count">0</span> 回</p>
+
+  <button id="btn">クリック</button>
+
+  <h3>結果</h3>
+  <div id="resultBox">ここに結果が表示されます</div>
+
+</div>
+
+<script>
+  let clickCount = 0;
+
+  document.getElementById("btn").addEventListener("click", function () {
+    clickCount++;
+    document.getElementById("count").textContent = clickCount;
+
+    let result = "";
+
+    // ★ switch構文で分岐処理
+    switch (clickCount) {
+
+      case 1:   // ★1個
+        result = "★";
+        break;
+
+      case 2:   // ★5個
+        for (let i = 1; i <= 5; i++) {
+          result += "★";
+        }
+        break;
+
+      case 3:   // 1～5の数字
+        for (let i = 1; i <= 5; i++) {
+          result += i + " ";
+        }
+        break;
+
+      case 4:   // 偶数のみ表示（2,4,6,8,10）
+        for (let i = 1; i <= 10; i++) {
+          if (i % 2 === 0) {
+            result += i + " ";
+          }
+        }
+        break;
+
+      case 5:   // 1～5 の合計値
+        let sum = 0;
+        for (let i = 1; i <= 5; i++) {
+          sum += i;
+        }
+        result = "合計値：" + sum;
+        break;
+
+      default:  // 6回目以降 → リセット
+        result = "クリアしました。カウントを0に戻します。";
+        clickCount = 0;
+        document.getElementById("count").textContent = clickCount;
+        break;
+    }
+
+    document.getElementById("resultBox").textContent = result;
+  });
+</script>
+
+</body>
+</html>
