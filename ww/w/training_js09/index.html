@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter for構文</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef3ff;
+      text-align: center;
+      padding: 40px;
+    }
+    #wrap {
+      background: #fff;
+      padding: 30px;
+      width: 500px;
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    #btn {
+      padding: 15px;
+      width: 70%;
+      font-size: 20px;
+      background: #2c56f0;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+    }
+    #btn:hover { opacity: 0.9; }
+    #resultBox {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f8f9ff;
+      border: 1px solid #d5d8f0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Click Counter ★ for構文</h1>
+<p>クリック回数に応じて結果が変わります。</p>
+
+<div id="wrap">
+
+  <p>クリック回数：<span id="count">0</span> 回</p>
+
+  <button id="btn">クリック</button>
+
+  <h3>結果</h3>
+  <div id="resultBox">ここに結果が表示されます</div>
+
+</div>
+
+<script>
+  let clickCount = 0;
+
+  document.getElementById("btn").addEventListener("click", function () {
+    clickCount++;
+    document.getElementById("count").textContent = clickCount;
+
+    let result = "";
+
+    // for構文で分岐を実現
+    for (let i = 1; i <= clickCount; i++) {
+
+      // --- 1回目：★を1個表示 ---
+      if (clickCount === 1) {
+        result = "★";
+      }
+
+      // --- 2回目：★を5個表示 ---
+      else if (clickCount === 2) {
+        result = "";
+        for (let j = 1; j <= 5; j++) {
+          result += "★";
+        }
+      }
+
+      // --- 3回目：1～5を1行で表示 ---
+      else if (clickCount === 3) {
+        result = "";
+        for (let j = 1; j <= 5; j++) {
+          result += j + " ";
+        }
+      }
+
+      // --- 4回目：偶数(2,4,6,8,10) を表示 ---
+      else if (clickCount === 4) {
+        result = "";
+        for (let j = 1; j <= 10; j++) {
+          if (j % 2 === 0) {
+            result += j + " ";
+          }
+        }
+      }
+
+      // --- 5回目：1～5の合計値を表示 ---
+      else if (clickCount === 5) {
+        let sum = 0;
+        for (let j = 1; j <= 5; j++) {
+          sum += j;
+        }
+        result = "合計値：" + sum;
+      }
+
+      // --- 6回目以降：リセット ---
+      else if (clickCount >= 6) {
+        result = "クリアしました。カウントを0に戻します。";
+        clickCount = 0;  // カウントリセット
+        document.getElementById("count").textContent = clickCount;
+      }
+    }
+
+    document.getElementById("resultBox").textContent = result;
+  });
+</script>
+
+</body>
+</html>
