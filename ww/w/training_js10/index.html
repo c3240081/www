@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>条件分岐</title>
+  <style>
+    :root{font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;}
+    body{background:#f8f9fb;margin:0;padding:24px;}
+    .card{background:#fff;border-radius:12px;padding:28px;max-width:880px;margin:20px auto;box-shadow:0 6px 18px rgba(20,30,40,0.06)}
+    h1{font-size:20px;margin:0 0 8px}
+    p.lead{color:#333;margin:8px 0 24px}
+    .equation{font-size:48px;margin:20px 0;font-weight:600}
+    .buttons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+    button.opt{padding:6px 12px;border:1px solid #bdbdbd;background:#f4f4f4;border-radius:6px;cursor:pointer}
+    #result{font-size:36px;font-weight:600;color:#111}
+    /* responsive */
+    @media (max-width:520px){.equation{font-size:36px} #result{font-size:28px}}
+    .example-images{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+    .example-images img{max-width:260px;border-radius:8px;border:1px solid #eee}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>問題</h1>
+    <p class="lead">次の方程式を満たす解を求めなさい。解は2つあります。</p>
+
+    <div class="equation">x<sup>2</sup> - 6x + 8 = 0</div>
+
+    <div class="buttons">
+      <button class="opt" onclick="setX(1)">x = 1</button>
+      <button class="opt" onclick="setX(2)">x = 2</button>
+      <button class="opt" onclick="setX(3)">x = 3</button>
+      <button class="opt" onclick="setX(4)">x = 4</button>
+      <button class="opt" onclick="setX(5)">x = 5</button>
+    </div>
+
+    <div id="result" aria-live="polite"></div>
+
+    <!-- 参考画像（ローカルファイル） -->
+    <div class="example-images">
+      <img src="/mnt/data/kadai10-1-1_初期表示.png" alt="初期表示">
+      <img src="/mnt/data/kadai10-1-2_正解処理事例.png" alt="正解の例">
+      <img src="/mnt/data/kadai10-1-3_不正解処理事例.png" alt="不正解の例">
+    </div>
+  </div>
+
+  <script>
+   
+    let x = null;
+
+    function setX(n){
+      x = Number(n);
+      check();
+    }
+
+    function check(){
+      const out = document.getElementById('result');
+     
+      if (x === 2 || x === 4) {
+        out.textContent = '正解！';
+      } else {
+        out.textContent = '間違い！';
+      }
+    }
+  </script>
+</body>
+</html>
