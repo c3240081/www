@@ -36,11 +36,11 @@
     </div>
 
     <div id="result" aria-live="polite"></div>
-
+    
   </div>
 
   <script>
-    
+   
     let x = null;
 
     function setX(n){
@@ -50,9 +50,8 @@
 
     function check(){
       const out = document.getElementById('result');
-      if (x === 2) {
-        out.textContent = '正解！';
-      } else if (x === 4) {
+     
+      if (x === 2 || x === 4) {
         out.textContent = '正解！';
       } else {
         out.textContent = '間違い！';
