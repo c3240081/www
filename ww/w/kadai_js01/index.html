@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>関数の戻り値</title>
+<title>1～10で割り切れる数字</title>
 <style>
     body { font-size: 20px; margin: 20px; }
     #box {
@@ -17,39 +17,38 @@
 <body>
 
 <h1>1～10で割り切れる数字</h1>
-<p>
-    1、2、3、4、5、6、7、8、9、10で、<br>割り切れる最小の数値をJavaScriptで求めます。
-</p>
+<p>1〜10のすべてで割り切れる最小の数値を求めます。</p>
 
-<button onclick="searchNumber()">結果を見る</button>
+<button onclick="showResult()">結果を見る</button>
 
 <div id="box">ここに結果が表示されます。</div>
 
 <script>
-function searchNumber() {
-    let num = 1;  // 検索する数字
-    let ok;       // 割り切れるかどうか
-
-    while (true) {
-
-        ok = true;  // 最初は "割り切れる" と仮定
-
-        // 1〜10すべてで割り切れるかチェック
-        for (let i = 1; i <= 10; i++) {
-            if (num % i !== 0) {
-                ok = false;  
-                break;       // 割り切れなかったら中断
-            }
+// 1〜10のすべてで割り切れるかどうかをチェックする関数
+function check(num) {
+    for (let i = 1; i <= 10; i++) {
+        if (num % i !== 0) {
+            return false;  // 割り切れなかったら false を返す
         }
-
-        // 全部割り切れたら終了
-        if (ok) {
-            document.getElementById("box").innerText = "答えは " + num + " です。";
-            break;
-        }
-
-        num++; // 次の数字へ
     }
+    return true;  // 全部割り切れたら true
+}
+
+// 条件を満たす数値を探して返す関数
+function searchNumber() {
+    let n = 1;
+    while (true) {
+        if (check(n)) {
+            return n;  // 条件を満たしたら「結果」を返す
+        }
+        n++;
+    }
+}
+
+// 結果を表示
+function showResult() {
+    let answer = searchNumber();  // 戻り値を受け取る
+    document.getElementById("box").innerText = "答えは " + answer + " です。";
 }
 </script>
 

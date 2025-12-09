@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>関数の戻り値</title>
+<style>
+    body { font-size: 20px; margin: 20px; }
+    #box {
+        width: 300px;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #ffc48c;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>1～10で割り切れる数字</h1>
+<p>
+    1、2、3、4、5、6、7、8、9、10で、<br>割り切れる最小の数値をJavaScriptで求めます。
+</p>
+
+<button onclick="searchNumber()">結果を見る</button>
+
+<div id="box">ここに結果が表示されます。</div>
+
+<script>
+function searchNumber() {
+    let num = 1;  // 検索する数字
+    let ok;       // 割り切れるかどうか
+
+    while (true) {
+
+        ok = true;  // 最初は "割り切れる" と仮定
+
+        // 1〜10すべてで割り切れるかチェック
+        for (let i = 1; i <= 10; i++) {
+            if (num % i !== 0) {
+                ok = false;  
+                break;       // 割り切れなかったら中断
+            }
+        }
+
+        // 全部割り切れたら終了
+        if (ok) {
+            document.getElementById("box").innerText = "答えは " + num + " です。";
+            break;
+        }
+
+        num++; // 次の数字へ
+    }
+}
+</script>
+
+</body>
+</html>
