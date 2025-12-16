@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>数値の入力とエラー処理</title>
+
+<style>
+    body {
+        font-size: 20px;
+        margin: 30px;
+        font-family: "Meiryo", sans-serif;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 6px 20px;
+        cursor: pointer;
+    }
+
+    #result {
+        margin-top: 25px;
+        padding: 15px;
+        background-color: #ffcc99;
+        border-radius: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>n〜mで割り切れる数字</h1>
+
+<p>
+    1〜10の好きな範囲で<br>
+    割り切れる最小の数値をJavaScriptで求めます。
+</p>
+
+<button onclick="calc()">範囲を指定</button>
+
+<div id="result">ここに結果が表示されます。</div>
+
+<script>
+function calc() {
+    let max = prompt("範囲の最大値を1〜10で入力してください");
+    let min = prompt("範囲の最小値を1〜10で入力してください");
+
+    max = Number(max);
+    min = Number(min);
+
+    // 入力エラー処理
+    if (
+        isNaN(max) || isNaN(min) ||
+        min < 1 || max > 10 ||
+        min > max
+    ) {
+        alert("1〜10の正しい範囲で入力してください");
+        return;
+    }
+
+    let num = 1;
+
+    while (true) {
+        let ok = true;
+
+        for (let i = min; i <= max; i++) {
+            if (num % i !== 0) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            document.getElementById("result").textContent =
+                min + "〜" + max + "で割り切れる最小の数値は" + num + "です。";
+            break;
+        }
+        num++;
+    }
+}
+</script>
+
+</body>
+</html>
