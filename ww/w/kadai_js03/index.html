@@ -13,7 +13,6 @@
 
     h1 {
         font-size: 36px;
-        margin-bottom: 10px;
     }
 
     .box {
@@ -32,7 +31,6 @@
         border: 3px solid #777;
         padding: 15px;
         margin-top: 20px;
-        white-space: pre-wrap; /* 改行をそのまま表示 */
         font-family: monospace;
     }
 </style>
@@ -43,7 +41,6 @@
 <h1>HTMLの表示</h1>
 <p>ボックス内の表示されている部分のHTMLを表示します。</p>
 
-<!-- 表示されている内容 -->
 <div class="box" id="content">
     <h3>人口800万人以上の都道府県</h3>
     <ul>
@@ -55,15 +52,14 @@
 
 <button onclick="showHTML()">HTMLを表示</button>
 
-<!-- HTML表示エリア -->
 <div class="result" id="output">
     ここにHTMLが表示されます。
 </div>
 
 <script>
 function showHTML() {
-    const contentHTML = document.getElementById("content").innerHTML;
-    document.getElementById("output").textContent = contentHTML;
+    const html = document.getElementById("content").innerHTML;
+    document.getElementById("output").textContent = html;
 }
 </script>
 
