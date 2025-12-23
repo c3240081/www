@@ -2,22 +2,36 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>推し○○クイズ</title>
+  <title>推しアーティストクイズ</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
-  <h1>推し○○クイズ</h1>
+  <h1>推しアーティストクイズ</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">図鑑に戻る</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
+<main class="quiz-area">
+
   <p id="question"></p>
+
   <div id="choices"></div>
+
   <p id="result"></p>
-  <button id="next">次の問題</button>
-  <button id="retry">もう一度挑戦</button>
+
+  <button id="next-btn">次の問題</button>
+  <button id="retry-btn">もう一度挑戦</button>
+
 </main>
+
+<footer>
+  <p>&copy; 2025 推しアーティスト図鑑</p>
+</footer>
 
 <script src="js/quiz.js"></script>
 </body>
