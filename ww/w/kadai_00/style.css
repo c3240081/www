@@ -1,54 +1,168 @@
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
   margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 header {
-  background: #333;
+  background-color: #222;
   color: #fff;
-  padding: 10px;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
 }
 
 nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   gap: 20px;
-  list-style: none;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
+/* ホバー演出① */
+nav a:hover {
+  color: #ff6699;
+}
+
+/* ===== メイン ===== */
+main {
+  padding: 30px 20px;
+}
+
+/* ===== カード一覧（Flexbox） ===== */
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  gap: 25px;
+  justify-content: center;
 }
 
+/* ===== カード ===== */
 .card {
+  background-color: #fff;
   width: 300px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
+/* ホバー演出② + transition */
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.card h3 {
+  margin-top: 15px;
+  font-size: 16px;
+  border-left: 5px solid #ff6699;
+  padding-left: 8px;
+}
+
+.card p {
+  font-size: 14px;
+}
+
+/* ===== 画像 ===== */
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+figcaption {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
 }
 
 
-nav a:hover {
+.card ul {
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+}
+
+
+.song-list {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.song-list li {
+  margin-bottom: 6px;
+}
+
+
+.song-list a {
+  color: #0066cc;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+
+.song-list a:hover {
+  color: #ff3366;
   text-decoration: underline;
 }
 
 
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 600px) {
-  .card-list {
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav ul {
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
   }
 }
+
