@@ -52,7 +52,6 @@ let score = 0;
 const questionText = document.querySelector("#question");
 const choicesDiv = document.querySelector("#choices");
 const resultText = document.querySelector("#result");
-const nextBtn = document.querySelector("#next-btn");
 const retryBtn = document.querySelector("#retry-btn");
 
 function showQuestion() {
@@ -73,23 +72,25 @@ function showQuestion() {
 }
 
 function checkAnswer(selected) {
+  const buttons = document.querySelectorAll("#choices button");
+  buttons.forEach(btn => btn.disabled = true);
+
   if (selected === questions[currentIndex].answer) {
     resultText.textContent = "正解！";
     score++;
   } else {
     resultText.textContent = "不正解…";
   }
+  setTimeout(() => {
+    currentIndex++;
+
+    if (currentIndex < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  }, 1000);
 }
-
-nextBtn.addEventListener("click", () => {
-  currentIndex++;
-
-  if (currentIndex < questions.length) {
-    showQuestion();
-  } else {
-    showResult();
-  }
-});
 
 function showResult() {
   questionText.textContent = `クイズ終了！ 正解数：${score} / ${questions.length}`;
