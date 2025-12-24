@@ -96,9 +96,11 @@ function showResult() {
   questionText.textContent = `クイズ終了！ 正解数：${score} / ${questions.length}`;
   choicesDiv.innerHTML = "";
 
-  if (score >= 4) {
+  if (score == 5) {
     resultText.textContent = "あなたは推しアーティストマスターです！";
-  } else {
+  } else if(score == 4){
+    resultText.textContent = "あと一問で全問正解";
+  } else{
     resultText.textContent = "まだまだ推しを研究しよう！";
   }
 }
