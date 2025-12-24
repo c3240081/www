@@ -212,7 +212,6 @@ footer {
 }
 
 
-#next-btn,
 #retry-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -223,18 +222,9 @@ footer {
   transition: background-color 0.3s;
 }
 
-#next-btn {
-  background-color: #ff6699;
-  color: #fff;
-}
-
 #retry-btn {
   background-color: #666;
   color: #fff;
-}
-
-#next-btn:hover {
-  background-color: #ff3366;
 }
 
 #retry-btn:hover {
